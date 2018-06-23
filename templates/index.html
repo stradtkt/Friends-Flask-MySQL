@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block title %} {{super()}} | View Friends {% endblock %}
+{% block content %} 
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+      <table class="table table-hovered">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Occupation</th>
+        </tr>
+          {% for user in users %}
+          <tr>
+            <td>{{user['first_name']}}</td>
+            <td>{{user['last_name']}}</td>
+            <td>{{user['occupation']}}</td>
+          </tr>
+            {% endfor %}
+      </table>
+      <a href="{{ url_for('add') }}" class="btn btn-success btn-lg">Add Friend</a>
+    </div>
+  </div>
+
+{% endblock %}
